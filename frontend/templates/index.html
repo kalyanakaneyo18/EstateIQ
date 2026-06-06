@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Predictor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <div class="brand-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M3 9.5L12 3l9 6.5V21H3V9.5z"/>
+                    <path d="M9 21V12h6v9"/>
+                </svg>
+            </div>
+            <div class="brand-text">
+                <span class="brand-name">EstateIQ</span>
+                <span class="brand-sub">Predictor</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <span class="nav-label">TOOLS</span>
+            <a href="#" class="nav-item active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V21H3V9.5z"/></svg>
+                Predict Price
+            </a>
+            <a href="#" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                Market Trends
+            </a>
+            <a href="#" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                Search Listings
+            </a>
+            <a href="#" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Reports
+            </a>
+
+            <span class="nav-label" style="margin-top: 20px;">HISTORY</span>
+            <a href="#" class="nav-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                Recent Estimates
+                <span class="nav-badge">3</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-avatar">K</div>
+            <div class="user-info">
+                <span class="user-name">Kalyan Sagar</span>
+                <span class="user-email">kalyansagar7008@gmail.com</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Top bar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <div class="command-bar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    <span>Enter property details to begin...</span>
+                </div>
+            </div>
+            <div class="topbar-right">
+                <div class="status-pill">
+                    <span class="status-dot"></span>
+                    Ready
+                </div>
+            </div>
+        </header>
+
+        <!-- Content Area -->
+        <div class="content-area">
+
+            <!-- Form Card -->
+            <div class="card" id="form-card">
+                <div class="card-header">
+                    <div class="card-title-group">
+                        <h1 class="card-title">Property Details</h1>
+                        <p class="card-subtitle">Fill in the details below to get an AI-powered price estimate</p>
+                    </div>
+                    <div class="card-badge">AI Powered</div>
+                </div>
+
+                <form id="prediction-form" novalidate>
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="area">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
+                                Area (sq. ft.)
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="number" id="area" name="area" min="100" max="10000" placeholder="e.g. 1500" required>
+                                <span class="input-unit">sq.ft</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bedrooms">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 4v16M22 4v16M2 8h20M2 16h20"/><rect x="6" y="8" width="4" height="4" rx="1"/><rect x="14" y="8" width="4" height="4" rx="1"/></svg>
+                                Bedrooms
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="number" id="bedrooms" name="bedrooms" min="1" max="10" placeholder="e.g. 3" required>
+                                <span class="input-unit">rooms</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bathrooms">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16v4a4 4 0 01-4 4H8a4 4 0 01-4-4v-4z"/><path d="M6 12V5a2 2 0 012-2h1v3"/></svg>
+                                Bathrooms
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="number" id="bathrooms" name="bathrooms" min="1" max="10" placeholder="e.g. 2" required>
+                                <span class="input-unit">baths</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="age">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                                Property Age (years)
+                            </label>
+                            <div class="input-wrapper">
+                                <input type="number" id="age" name="age" min="0" max="100" placeholder="e.g. 5" required>
+                                <span class="input-unit">yrs</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                                Location
+                            </label>
+                            <div class="input-wrapper select-wrapper">
+                                <select id="location" name="location" required>
+                                    <option value="">Select location type</option>
+                                    <option value="Rural">Rural</option>
+                                    <option value="Suburb">Suburb</option>
+                                    <option value="City Center">City Center</option>
+                                </select>
+                                <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="property_type">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9.5L12 3l9 6.5V21H3V9.5z"/><path d="M9 21V12h6v9"/></svg>
+                                Property Type
+                            </label>
+                            <div class="input-wrapper select-wrapper">
+                                <select id="property_type" name="property_type" required>
+                                    <option value="">Select property type</option>
+                                    <option value="House">House</option>
+                                    <option value="Apartment">Apartment</option>
+                                    <option value="Villa">Villa</option>
+                                </select>
+                                <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="predict-btn">
+                            <span class="btn-text">Predict Price</span>
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            <span class="btn-loader"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Result Card -->
+            <div class="card result-card" id="result-section" style="display:none;">
+                <div class="result-header">
+                    <div class="result-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M9 12l2 2 4-4"/></svg>
+                    </div>
+                    <div>
+                        <h2 class="result-title">Estimate Ready</h2>
+                        <p class="result-sub">Based on current market data</p>
+                    </div>
+                </div>
+
+                <div class="price-display">
+                    <span class="price-label">Estimated Market Value</span>
+                    <span class="price-value" id="price-value">--</span>
+                    <span class="price-note">± 5–10% variance based on micro-location factors</span>
+                </div>
+
+                <button class="reset-btn" onclick="resetForm()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                    New Prediction
+                </button>
+            </div>
+
+            <!-- Error Card -->
+            <div class="card error-card" id="error-section" style="display:none;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <p id="error-message">Something went wrong.</p>
+            </div>
+
+        </div>
+
+        <!-- Activity Log -->
+        <div class="activity-section">
+            <div class="activity-header">
+                <span class="activity-dot"></span>
+                <span>Activity Log</span>
+                <button class="clear-btn" onclick="clearLog()">CLEAR</button>
+            </div>
+            <div class="activity-log" id="activity-log">
+                <div class="log-entry">
+                    <span class="log-tag sys">SYS</span>
+                    <span class="log-time" id="init-time"></span>
+                    <span class="log-msg">EstateIQ ready. Fill in property details to get a price estimate.</span>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
