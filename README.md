@@ -97,7 +97,7 @@ Real estate valuation is a complex, multi‑factor problem. Buyers, sellers, and
 ## Code Structure
 
 ```
-Task_4/
+EstateIQ/
 ├── backend/
 │   ├── config/
 │   │   └── config.py              # Paths, constants, random state
@@ -201,8 +201,9 @@ The Jupyter notebook (`backend/notebooks/house_price_prediction.ipynb`) includes
 ### Installation
 
 ```bash
-# 1. Clone or navigate to the project root
-cd Task_4
+# 1. Clone the repository
+git clone https://github.com/kalyanakaneyo18/EstateIQ.git
+cd EstateIQ
 
 # 2. Create a virtual environment (recommended)
 python -m venv venv
